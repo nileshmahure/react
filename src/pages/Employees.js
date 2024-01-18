@@ -1,12 +1,12 @@
-import AddEmployee from './components/AddEmployee';
-import EditEmployee from './components/EditEmployee';
-import Employee  from './components/Employee';
-import './index.css';
+import AddEmployee from '../components/AddEmployee';
+import EditEmployee from '../components/EditEmployee';
+import Employee  from '../components/Employee';
+import '../index.css';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Header from '../components/Header';
 
-function App() {
-  const [role, setRole] = useState('Dev');
+function Employees() {
   const [employees, setEmployees] = useState(
     [{
       id:1,
@@ -69,17 +69,12 @@ function App() {
 
   const showEmployees = true;
   return (
-    <div className="App">
+    <div className="">
       
-      {console.log('inside the return')}
         { 
           showEmployees ? 
         <>
-        <input 
-        type='text' 
-        onChange={(e)=>{ 
-        setRole(e.target.value);
-        }}/>
+        
         <div className='flex flex-wrap justify-center'>
           {employees.map((employee)=>{
             const editEmployee = (<EditEmployee 
@@ -108,4 +103,4 @@ function App() {
   );
 }
 
-export default App;
+export default Employees;
